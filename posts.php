@@ -5,7 +5,7 @@ class Post
 
     private static string $path = "./data/posts.json";
 
-    public static function Create(string $id, string $title, string $data): void
+    public static function Create(string $title, string $data): void
     {
 
         $currentData = file_get_contents(self::$path);
