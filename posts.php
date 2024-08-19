@@ -40,6 +40,7 @@ class Post
                 unset($dataArray[$i]);
             }
         }
+        Data::WriteData($dataArray);
     }
     public static function View(string $id): array
     {
