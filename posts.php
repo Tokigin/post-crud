@@ -10,10 +10,10 @@ class Post
     {
         $dataArray = self::GetData();
         $NewJsonData = [
-            "PostId" => (empty($dataArray)) ? "1" : (string)(sizeof($dataArray) + 1),
+            "PostId" => (empty($dataArray)) ? "1" : (string) (sizeof($dataArray) + 1),
             "PostTitle" => $title,
             "PostData" => $data,
-            "DateTime" =>  date("Y/m/d"),
+            "DateTime" => date("Y/m/d"),
         ];
         $dataArray[] = $NewJsonData;
         $jsonString = json_encode($dataArray, JSON_PRETTY_PRINT);
@@ -33,7 +33,7 @@ class Post
                 $sigleData = $dataArray[$i];
             }
         }
-        return    $sigleData;
+        return $sigleData;
     }
     public static function GetData(): array
     {
