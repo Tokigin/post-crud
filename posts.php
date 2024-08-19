@@ -4,8 +4,6 @@ class Post
 {
 
     public static string $path = "./data/posts.json";
-
-
     public static function Create(string $title, string $data): void
     {
         $dataArray = self::GetData();
@@ -16,24 +14,43 @@ class Post
             "DateTime" => date("Y/m/d"),
         ];
         $dataArray[] = $NewJsonData;
-        $jsonString = json_encode($dataArray, JSON_PRETTY_PRINT);
-        $fp = fopen(self::$path, 'w');
-        fwrite($fp, $jsonString);
-        fclose($fp);
+        Data::WriteData($dataArray);
     }
-    public static function Update() {}
-    public static function Delete(): void {}
+    public static function Update(string $id, string $title, string $data): void
+    {
+        $dataArray = self::GetData();
+        $NewJsonData = [
+            "PostId" => $id,
+            "PostTitle" => $title,
+            "PostData" => $data,
+            "DateTime" => date("Y/m/d"),
+        ];
+        for ($i = 0; $i < sizeof($dataArray); $i++) {
+            if ($dataArray[$i]["PostId"] == $id) {
+                $dataArray[$i] = $NewJsonData;
+            }
+        }
+        Data::WriteData($dataArray);
+    }
+    public static function Delete(string $id): void
+    {
+        $dataArray = self::GetData();
+        for ($i = 0; $i < sizeof($dataArray); $i++) {
+            if ($dataArray[$i]["PostId"] == $id) {
+                unset($dataArray[$i]);
+            }
+        }
+    }
     public static function View(string $id): array
     {
         $dataArray = self::GetData();
-        $sigleData = array();
+        $singleData = array();
         for ($i = 0; $i < sizeof($dataArray); $i++) {
             if ($dataArray[$i]["PostId"] == $id) {
-
-                $sigleData = $dataArray[$i];
+                $singleData = $dataArray[$i];
             }
         }
-        return $sigleData;
+        return $singleData;
     }
     public static function GetData(): array
     {
