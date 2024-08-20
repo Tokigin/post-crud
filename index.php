@@ -1,5 +1,8 @@
 <?php
 require_once "./posts.php";
+
+use Posts\Post;
+
 $dataArray = Post::GetData();
 $pid = 1;
 ?>

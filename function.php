@@ -1,5 +1,9 @@
 <?php
+
 require_once "./posts.php";
+
+use Posts\Post;
+
 if (isset($_GET['type'])) {
     switch (htmlspecialchars($_GET['type'])) {
         case "create":

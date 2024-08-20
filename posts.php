@@ -1,8 +1,7 @@
 <?php
-if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
-    http_response_code(404);
-    die();
-}
+
+namespace Posts;
+
 class Post
 {
     public static string $path = "./data/posts.json";
@@ -15,7 +14,7 @@ class Post
             "PostData" => $data,
             "DateTime" => date("Y/m/d"),
         ];
-        Data::WriteData($dataArray);
+        \Data::WriteData($dataArray);
     }
     public static function Update(string $id, string $title, string $data): void
     {
@@ -30,7 +29,7 @@ class Post
                 ];
             }
         }
-        Data::WriteData($dataArray);
+        \Data::WriteData($dataArray);
     }
     public static function Delete(string $id): void
     {
@@ -40,7 +39,7 @@ class Post
                 $newArray[] = $singleArray;
             }
         }
-        Data::WriteData($newArray);
+        \Data::WriteData($newArray);
     }
     public static function View(string $id): array
     {
@@ -56,4 +55,8 @@ class Post
     {
         return (empty(file_get_contents(self::$path))) ? array() : json_decode(file_get_contents(self::$path), true);
     }
+}
+if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    http_response_code(404);
+    die();
 }

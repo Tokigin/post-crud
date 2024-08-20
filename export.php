@@ -1,5 +1,8 @@
 <?php
 require_once "./posts.php";
+
+use Posts\Post;
+
 $pid = 1;
 $dataArray = Post::GetData();
 $fileName = "export_" . date('Y-m-d-H:i:s') . ".xls";

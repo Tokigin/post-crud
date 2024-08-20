@@ -1,5 +1,8 @@
 <?php
 require_once "./posts.php";
+
+use Posts\Post;
+
 if (isset($_GET['id'])) {
     $PostData = Post::View($_GET['id']);
 }
