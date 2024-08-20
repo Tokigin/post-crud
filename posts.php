@@ -1,5 +1,8 @@
 <?php
-
+if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    http_response_code(404);
+    die();
+}
 class Post
 {
     public static string $path = "./data/posts.json";
