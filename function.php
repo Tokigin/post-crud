@@ -3,12 +3,12 @@ require_once "./posts.php";
 if (isset($_GET['type'])) {
     switch (htmlspecialchars($_GET['type'])) {
         case "create":
-            Post::Create($_POST["title"], $_POST["des"]);
+            Post::Create(Data::String($_POST["title"]), Data::String($_POST["des"]));
             header("Location: ./add.php?message=complete");
             break;
         case "update":
-            Post::Update($_POST["id"], $_POST["title"], $_POST["des"]);
-            header("Location: ./update.php?message=complete&id=" . $_POST["id"]);
+            Post::Update(Data::String($_POST["id"]), Data::String($_POST["title"]), Data::String($_POST["des"]));
+            header("Location: ./update.php?message=complete&id=" . Data::String($_POST["id"]));
             break;
         case "delete":
             Post::Delete($_GET["id"]);
@@ -24,6 +24,11 @@ if (isset($_GET['type'])) {
 
 class Data
 {
+    public static function String(string $data): string
+    {
+        $invalid_ = ["^", "#", "|", ";", "--", "<?", "?>", "::", "./", "$$"];
+        return str_replace($invalid_, "", $data);
+    }
     public static function WriteData(array $dataArray): void
     {
         $fp = fopen(Post::$path, 'w');
