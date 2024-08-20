@@ -1,8 +1,7 @@
 <?php
 require_once "./posts.php";
 if (isset($_GET['type'])) {
-    $name = htmlspecialchars($_GET['type']); // Sanitize input
-    switch ($name) {
+    switch (htmlspecialchars($_GET['type'])) {
         case "create":
             Post::Create($_POST["title"], $_POST["des"]);
             header("Location: ./add.php?message=complete");
@@ -27,9 +26,8 @@ class Data
 {
     public static function WriteData(array $dataArray): void
     {
-        $jsonString = json_encode($dataArray, JSON_PRETTY_PRINT);
         $fp = fopen(Post::$path, 'w');
-        fwrite($fp, $jsonString);
+        fwrite($fp, json_encode($dataArray, JSON_PRETTY_PRINT));
         fclose($fp);
     }
 }

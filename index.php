@@ -1,3 +1,8 @@
+<?php
+require_once "./posts.php";
+$dataArray = Post::GetData();
+$pid = 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,21 +29,20 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                require_once "./posts.php";
-                $dataArray = Post::GetData();
 
-                ?>
-                <?php foreach ($dataArray as $row) {
-                ?>
+                <?php foreach ($dataArray as $row) { ?>
                     <tr>
-                        <td><?php echo $row["PostId"]; ?></td>
-                        <td><?php echo  $row["PostTitle"]; ?></td>
+                        <td><?php echo $pid++ ?></td>
+                        <td><?php echo $row["PostTitle"]; ?></td>
                         <td><?php echo $row["PostData"]; ?></td>
                         <td><?php echo $row["DateTime"]; ?></td>
                         <td>
-                            <a href="./update.php?id=<?php echo $row["PostId"]; ?>" type="button" class="btn btn-secondary m-1">Update</a>
-                            <a href="./function.php?type=delete&id=<?php echo $row["PostId"]; ?>" type="button" class="btn btn-danger m-1">Delete</a>
+                            <a href="./post.php?id=<?php echo $row["PostId"]; ?>" type="button"
+                                class="btn btn-primary m-1">View</a>
+                            <a href="./update.php?id=<?php echo $row["PostId"]; ?>" type="button"
+                                class="btn btn-secondary m-1">Update</a>
+                            <a href="./function.php?type=delete&id=<?php echo $row["PostId"]; ?>" type="button"
+                                class="btn btn-danger m-1">Delete</a>
                         </td>
                     </tr>
                 <?php

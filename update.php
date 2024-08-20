@@ -1,3 +1,9 @@
+<?php
+require_once "./posts.php";
+if (isset($_GET['id'])) {
+    $PostData = Post::View($_GET['id']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,14 +18,9 @@
 <body>
     <div class="container">
         <div class="m-5">
-            <h1 class="text-center">Add New Post</h1>
+            <h1 class="text-center">Update Post</h1>
         </div>
-        <?php
-        require "./posts.php";
-        if (isset($_GET['id'])) {
-            $PostData = Post::View($_GET['id']);
-        }
-        ?>
+
         <?php
         if (isset($_GET['message']) && $_GET['message'] == "complete"): ?>
             <div class="alert alert-primary alert-dismissible fade show" role="alert"> Complete <button type="button"
@@ -36,7 +37,7 @@
                     <label for="des" class="form-label">Content</label>
                     <textarea type="text" class="form-control" name="des" id="des" required><?php echo $PostData["PostData"] ?></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Add Post</button>
+                <button type="submit" class="btn btn-primary">Update Post</button> <a href="./" class="btn btn-dark">Back</a>
             </form>
         <?php else: ?>
             <h2>no data</h2>
