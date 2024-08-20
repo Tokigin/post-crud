@@ -54,6 +54,6 @@ class Post
     }
     public static function GetData(): array
     {
-        return (empty(json_decode(file_get_contents(self::$path), true))) ? array() : json_decode(file_get_contents(self::$path), true);
+        return (empty(file_get_contents(self::$path))) ? array() : json_decode(file_get_contents(self::$path), true);
     }
 }

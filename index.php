@@ -18,10 +18,12 @@ $pid = 1;
     <section class="container ">
         <h1 class="m-5 text-center">All Posts</h1>
         <a href="./add.php" class="btn btn-primary"> Add New</a>
+        <a href="./export.php" class="btn btn-success"> Export Excel</a>
+
         <?php
         if (isset($_GET['message']) && $_GET['message'] == "deleted"): ?>
             <div class="alert alert-primary alert-dismissible fade show" role="alert"> Post Deleted <button type="button"
-                    class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                    class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>
         <?php endif; ?>
         <table class="table">
             <thead>

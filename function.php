@@ -27,8 +27,7 @@ class Data
 {
     public static function String(string $data): string
     {
-        $invalid_ = ["^", "#", "|", ";", "--", "<?", "?>", "::", "./", "$$"];
-        return str_replace($invalid_, "", $data);
+        return str_replace(["^", "#", "|", ";", "--", "<?", "?>", "::", "./", "$$"], "", $data);
     }
     public static function WriteData(array $dataArray): void
     {
