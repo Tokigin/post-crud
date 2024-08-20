@@ -1,8 +1,4 @@
 <?php
-if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
-    http_response_code(404);
-    die();
-}
 require_once "./posts.php";
 if (isset($_GET['type'])) {
     switch (htmlspecialchars($_GET['type'])) {
