@@ -1,6 +1,3 @@
-# Ignore data directories
-data/
 
-text
 # Ignore all .json files
 data/posts.json
