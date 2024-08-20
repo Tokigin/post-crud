@@ -11,7 +11,7 @@ if (isset($_GET['type'])) {
             header("Location: ./update.php?message=complete&id=" . Data::String($_POST["id"]));
             break;
         case "delete":
-            Post::Delete($_GET["id"]);
+            Post::Delete(Data::String($_GET["id"]));
             header("Location: ./index.php?message=deleted");
             break;
         default:
