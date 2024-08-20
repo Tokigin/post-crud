@@ -20,6 +20,7 @@ if (isset($_GET['type'])) {
     }
 } else {
     http_response_code(404);
+    die();
 }
 
 class Data
