@@ -12,6 +12,7 @@
 <body>
     <section class="container ">
         <h1 class="m-5 text-center">All Posts</h1>
+        <a href="./add.php" class="btn btn-primary"> Add New</a>
         <table class="table">
             <thead>
                 <tr>
@@ -20,7 +21,6 @@
                     <th scope="col">Data</th>
                     <th scope="col">Date</th>
                     <th scope="col">Update/Delete</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -40,8 +40,6 @@
                             <a href="./update.php?id=<?php echo $row["PostId"]; ?>" type="button" class="btn btn-secondary m-1">Update</a>
                             <a href="./function.php?type=delete&id=<?php echo $row["PostId"]; ?>" type="button" class="btn btn-danger m-1">Delete</a>
                         </td>
-
-
                     </tr>
                 <?php
                 } ?>

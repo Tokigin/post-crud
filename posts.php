@@ -8,7 +8,7 @@ class Post
     {
         $dataArray = self::GetData();
         $NewJsonData = [
-            "PostId" => (empty($dataArray)) ? "1" : (string) (sizeof($dataArray) + 1),
+            "PostId" =>   uniqid(date("YmdHis")),
             "PostTitle" => $title,
             "PostData" => $data,
             "DateTime" => date("Y/m/d"),
@@ -35,12 +35,13 @@ class Post
     public static function Delete(string $id): void
     {
         $dataArray = self::GetData();
-        for ($i = 0; $i < sizeof($dataArray); $i++) {
-            if ($dataArray[$i]["PostId"] == $id) {
-                unset($dataArray[$i]);
+        $newArray = array();
+        foreach ($dataArray as $singleArray) {
+            if ($singleArray["PostId"] != $id) {
+                $newArray[] = $singleArray;
             }
         }
-        Data::WriteData($dataArray);
+        Data::WriteData($newArray);
     }
     public static function View(string $id): array
     {
@@ -55,6 +56,6 @@ class Post
     }
     public static function GetData(): array
     {
-        return json_decode(file_get_contents(self::$path), true);
+        return (empty(json_decode(file_get_contents(self::$path), true))) ? array() : json_decode(file_get_contents(self::$path), true);
     }
 }

@@ -29,7 +29,7 @@
         <textarea type="text" class="form-control" name="des" id="des" required></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">Add Post</button>
+      <button type="submit" class="btn btn-primary">Add Post</button> <a href="./" class="btn btn-dark">Back</a>
     </form>
   </div>
 
