@@ -15,6 +15,11 @@ $pid = 1;
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <style>
+        img {
+            max-height: 300px;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,6 +27,8 @@ $pid = 1;
         <h1 class="m-5 text-center">All Posts</h1>
         <a href="./add.php" class="btn btn-primary"> Add New</a>
         <a href="./export.php" class="btn btn-success"> Export Excel</a>
+        <a href="./data/posts.json" class="btn btn-dark"> View Json</a>
+
 
         <?php
         if (isset($_GET['message']) && $_GET['message'] == "deleted"): ?>

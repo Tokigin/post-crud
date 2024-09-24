@@ -31,7 +31,7 @@ class Data
 {
     public static function String(string $data): string
     {
-        return str_replace(["^", "#", "|", ";", "--", "<?", "?>", "::", "./", "$$"], "", $data);
+        return str_replace(["^", "#", "|", "--", "<?", "?>", "::", "./", "$$"], "", $data);
     }
     public static function WriteData(array $dataArray): void
     {

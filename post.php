@@ -18,6 +18,12 @@ if (isset($_GET['id']) && $PostData != null): ?>
         <title><?php echo $PostData["PostTitle"] ?></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+        <style>
+            img {
+                max-width: 600px;
+                max-height: 300px;
+            }
+        </style>
     </head>
 
     <body>
