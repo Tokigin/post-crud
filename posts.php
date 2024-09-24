@@ -2,6 +2,10 @@
 
 namespace Posts;
 
+if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    http_response_code(404);
+    die();
+}
 class Post
 {
     public static string $path = "./data/posts.json";
@@ -55,8 +59,4 @@ class Post
     {
         return (empty(file_get_contents(self::$path))) ? array() : json_decode(file_get_contents(self::$path), true);
     }
-}
-if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
-    http_response_code(404);
-    die();
 }
