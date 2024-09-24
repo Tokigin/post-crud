@@ -2,8 +2,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 <!-- Include the Quill library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <!-- Initialize Quill editor -->
 <script>
     const toolbarOptions = [
@@ -29,11 +30,8 @@
         }], // outdent/indent
         [{
             'direction': 'rtl'
-        }], // text direction
-
-        [{
-            'size': ['small', false, 'large', 'huge']
-        }], // custom dropdown
+        }], // text direction 
+        // custom dropdown
         [{
             'header': [1, 2, 3, 4, 5, 6, false]
         }],
