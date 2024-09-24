@@ -53,7 +53,8 @@
     const quill = new Quill('#editor', {
         modules: {
             syntax: true,
-            toolbar: toolbarOptions
+            toolbar: toolbarOptions,
+            formats: ['header', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'align'],
         },
         placeholder: 'Compose an epic...',
         theme: 'snow',

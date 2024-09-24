@@ -25,8 +25,6 @@
       </div>
       <div class="mb-3">
         <label for="des" class="form-label">Content</label>
-        <!-- <textarea type="text" class="form-control" name="des" id="des" required></textarea> -->
-        <!-- Create the editor container -->
         <div id="editor" class="form-control" name="des">
         </div>
       </div>
